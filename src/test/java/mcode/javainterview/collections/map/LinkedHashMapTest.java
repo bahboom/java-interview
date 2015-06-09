@@ -13,8 +13,12 @@ import org.junit.Test;
 public class LinkedHashMapTest {
 
 	/**
-	 * LinkedHashMap stores entries in the order that was inserted.
+	 * Question: 
+	 * 	What is the difference between HashMap and LinkedHashMap?
+	 * Answer:
+	 * 	LinkedHashMap stores entries in the order that was inserted.
 	 * HashMap does not guarantee entries are stored in the order that was inserted.
+	 * TreeMap maintains natural order of insertion.
 	 */
 	@Test
 	public void HashMapVsLinkedHashMapTest() {
@@ -24,16 +28,14 @@ public class LinkedHashMapTest {
 		Map<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();
 		insertConsecutiveIntegers(linkedHashMap, 1000);
 		
-		// TreeMap maintains natural order of insertion.
-		
 		assertFalse(mapEntriesAreInOrder(hashMap));
 		assertTrue(mapEntriesAreInOrder(linkedHashMap));
 	}
 	
 	/**
 	 * Adds a list of consecutive Integers into map in order.
-	 * @param map map to add Integer entries to.
-	 * @param count number of integers to add.
+	 * @param map map to add Integer entries to
+	 * @param count number of integers to add
 	 */
 	private static void insertConsecutiveIntegers(Map<String, Integer> map, int count) {
 		for(int i = 0; i < count; i++) {
@@ -43,8 +45,8 @@ public class LinkedHashMapTest {
 	
 	/**
 	 * Checks that all Integer values are in order in the map.
-	 * @param map
-	 * @return true if all Integer values in the map are in order.
+	 * @param map to do the checks on
+	 * @return true if all Integer values in the map are in order
 	 */
 	private static boolean mapEntriesAreInOrder(Map<String, Integer> map) {
 		Integer val = null;
